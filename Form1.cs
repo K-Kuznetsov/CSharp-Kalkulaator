@@ -16,8 +16,6 @@ namespace Kalkulaator
         {
             InitializeComponent();
         }
-        public string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        public string lowercase = "abcdefghijklmnopqrstuvwxyz";
 
         private void btnArvuta_Click(object sender, EventArgs e)
         {
