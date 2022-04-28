@@ -26,41 +26,52 @@ namespace Kalkulaator
                 arv.number1 = Convert.ToSingle(txtArv1.Text);
                 arv.number2 = Convert.ToSingle(txtArv2.Text);
 
+
                 if (chkLiida.Checked)
                 {
                     arv.tehing = "+";
+                    Single tulemused = arv.arvutus();
+                    lblVastus.Text = Convert.ToString(arv.number1) + arv.tehing + Convert.ToString(arv.number2) + " = " +
+                                     Convert.ToString(tulemused);
                 }
-                if (chkLahuta.Checked)
+                else if (chkLahuta.Checked)
                 {
                     arv.tehing = "-";
+                    Single tulemused = arv.arvutus();
+                    lblVastus.Text = Convert.ToString(arv.number1) + arv.tehing + Convert.ToString(arv.number2) + " = " +
+                                     Convert.ToString(tulemused);
                 }
-                if (chkKorruta.Checked)
+                else if (chkKorruta.Checked)
                 {
                     arv.tehing = "*";
+                    Single tulemused = arv.arvutus();
+                    lblVastus.Text = Convert.ToString(arv.number1) + arv.tehing + Convert.ToString(arv.number2) + " = " +
+                                     Convert.ToString(tulemused);
                 }
-                if (chkJaga.Checked)
+                else if (chkJaga.Checked)
                 {
                     arv.tehing = "/";
+                    Single tulemused = arv.arvutus();
+                    lblVastus.Text = Convert.ToString(arv.number1) + arv.tehing + Convert.ToString(arv.number2) + " = " +
+                                     Convert.ToString(tulemused);
                 }
-
-                Single tulemused = arv.arvutus();
-                lblVastus.Text = Convert.ToString(arv.number1) + arv.tehing + Convert.ToString(arv.number2) + " = " +
-                                 Convert.ToString(tulemused);
-
             }
             catch
             {
                 if (txtArv1.Text == "")
-                {
-                    MessageBox.Show("Sisesta arv!");
-                }
-
-                if (txtArv2.Text == "")
-                {
-                    MessageBox.Show("Sisesta arv!");
-                }
+                    MessageBox.Show("Sisesta esimene arv", "Viga",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            {
+                if (txtArv2.Text == "")
+                    MessageBox.Show("Sisesta teine arv", "Viga",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            {
+                if (arv.tehing == "")
+                    MessageBox.Show("Vali tehing", "Viga",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
