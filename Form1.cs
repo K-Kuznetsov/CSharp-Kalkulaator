@@ -17,6 +17,12 @@ namespace Kalkulaator
             InitializeComponent();
         }
 
+        const int BACKSPACE = 8;
+        const int DECIMAL_POINT = 46;
+        const int ZERO = 48;
+        const int NINE = 57;
+        const int NOT_FOUND = -1;
+
         private void btnArvuta_Click(object sender, EventArgs e)
         {
             Matemaatika arv = new Matemaatika();
@@ -76,6 +82,26 @@ namespace Kalkulaator
                 if (arv.tehing == "")
                     MessageBox.Show("Vali tehing!", "Viga",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtArv1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            {
+                int keyvalue = (int)e.KeyChar;
+                if ((keyvalue == BACKSPACE) || ((keyvalue >= ZERO) && (keyvalue <= NINE))) return;
+                if ((keyvalue == DECIMAL_POINT) && (txtArv1.Text.IndexOf(".") == NOT_FOUND)) return;
+                e.Handled = true;
+            }
+        }
+
+        private void txtArv2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            {
+                int keyvalue = (int)e.KeyChar;
+                if ((keyvalue == BACKSPACE) || ((keyvalue >= ZERO) && (keyvalue <= NINE))) return;
+                if ((keyvalue == DECIMAL_POINT) && (txtArv2.Text.IndexOf(".") == NOT_FOUND)) return;
+                e.Handled = true;
             }
         }
     }

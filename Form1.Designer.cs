@@ -143,6 +143,7 @@
             this.txtArv1.Name = "txtArv1";
             this.txtArv1.Size = new System.Drawing.Size(200, 30);
             this.txtArv1.TabIndex = 11;
+            this.txtArv1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtArv1_KeyPress);
             // 
             // txtArv2
             // 
@@ -151,6 +152,7 @@
             this.txtArv2.Name = "txtArv2";
             this.txtArv2.Size = new System.Drawing.Size(200, 30);
             this.txtArv2.TabIndex = 12;
+            this.txtArv2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtArv2_KeyPress);
             // 
             // Form1
             // 
