@@ -16,6 +16,8 @@ namespace Kalkulaator
         {
             InitializeComponent();
         }
+        public string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        public string lowercase = "abcdefghijklmnopqrstuvwxyz";
 
         private void btnArvuta_Click(object sender, EventArgs e)
         {
@@ -58,18 +60,23 @@ namespace Kalkulaator
             }
             catch
             {
-                if (txtArv1.Text == "")
-                    MessageBox.Show("Sisesta esimene arv", "Viga",
+                if (txtArv1.Text == "" || txtArv2.Text == "")
+                    MessageBox.Show("Sisesta mõlemad arvud!", "Viga",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             {
-                if (txtArv2.Text == "")
-                    MessageBox.Show("Sisesta teine arv", "Viga",
+                if (txtArv1.Text == "0" || txtArv2.Text == "0")
+                    MessageBox.Show("Sisesta nullist erinevad arvud!", "Viga",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            {
+                if (txtArv1.Text.Contains(",") || txtArv2.Text.Contains(","))
+                    MessageBox.Show("Kasuta koma asemel punkti!", "Viga",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             {
                 if (arv.tehing == "")
-                    MessageBox.Show("Vali tehing", "Viga",
+                    MessageBox.Show("Vali tehing!", "Viga",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
