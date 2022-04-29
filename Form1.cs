@@ -61,47 +61,27 @@ namespace Kalkulaator
                     lblVastus.Text = Convert.ToString(arv.number1) + arv.tehing + Convert.ToString(arv.number2) + " = " +
                                      Convert.ToString(tulemused);
                 }
+                else
+                {
+                    MessageBox.Show("Vali tehing!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch
             {
                 if (txtArv1.Text == "" || txtArv2.Text == "")
-                    MessageBox.Show("Sisesta mõlemad arvud!", "Viga",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sisesta mõlemad arvud!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            {
+                if ((txtArv1.Text).Any(c => Char.IsLetter(c)) || (txtArv2.Text).Any(c => Char.IsLetter(c)))
+                    MessageBox.Show("Kasuta ainult numbreid!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             {
                 if (txtArv1.Text == "0" || txtArv2.Text == "0")
-                    MessageBox.Show("Sisesta nullist erinevad arvud!", "Viga",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sisesta nullist erinevad arvud!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             {
                 if (txtArv1.Text.Contains(",") || txtArv2.Text.Contains(","))
-                    MessageBox.Show("Kasuta koma asemel punkti!", "Viga",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            {
-                if (arv.tehing == "")
-                    MessageBox.Show("Vali tehing!", "Viga",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void txtArv1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            {
-                int keyvalue = (int)e.KeyChar;
-                if ((keyvalue == BACKSPACE) || ((keyvalue >= ZERO) && (keyvalue <= NINE))) return;
-                if ((keyvalue == DECIMAL_POINT) && (txtArv1.Text.IndexOf(".") == NOT_FOUND)) return;
-                e.Handled = true;
-            }
-        }
-
-        private void txtArv2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            {
-                int keyvalue = (int)e.KeyChar;
-                if ((keyvalue == BACKSPACE) || ((keyvalue >= ZERO) && (keyvalue <= NINE))) return;
-                if ((keyvalue == DECIMAL_POINT) && (txtArv2.Text.IndexOf(".") == NOT_FOUND)) return;
-                e.Handled = true;
+                    MessageBox.Show("Kasuta koma asemel punkti!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
