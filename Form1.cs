@@ -16,13 +16,7 @@ namespace Kalkulaator
         {
             InitializeComponent();
         }
-
-        const int BACKSPACE = 8;
-        const int DECIMAL_POINT = 46;
-        const int ZERO = 48;
-        const int NINE = 57;
-        const int NOT_FOUND = -1;
-
+        
         private void btnArvuta_Click(object sender, EventArgs e)
         {
             Matemaatika arv = new Matemaatika();
@@ -31,7 +25,6 @@ namespace Kalkulaator
             {
                 arv.number1 = Convert.ToSingle(txtArv1.Text);
                 arv.number2 = Convert.ToSingle(txtArv2.Text);
-
 
                 if (chkLiida.Checked)
                 {
