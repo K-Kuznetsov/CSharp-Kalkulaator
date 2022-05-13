@@ -74,11 +74,11 @@ namespace Kalkulaator
             }
             {
                 if ((txtArv1.Text == "0") && (chkJaga.Checked) || (txtArv2.Text == "0") && (chkJaga.Checked))
-                    MessageBox.Show("Nulli ega nulliga ei saa jagada!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nulliga ei saa jagada!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             {
                 if ((txtArv1.Text == "0") && (chkKorruta.Checked) || (txtArv2.Text == "0") && (chkKorruta.Checked))
-                    MessageBox.Show("Nulli ega nulliga ei saa korrutada!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nulliga ei saa korrutada!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
